@@ -489,13 +489,17 @@
     <xs:attribute name="HighAlias" type="identifier" use="optional"/>
   </xs:complexType>
 
+  <xs:complexType name="T_Alias">
+    <xs:attribute name="Identifier" type="typeidentifier" use="required"/>
+    <xs:attribute name="RefersTo" type="identifierref" use="required"/>
+  </xs:complexType>
+
   <xs:complexType name="T_Type">
     <xs:sequence>
       <xs:element name="DataClass.Forwarded" minOccurs="0" maxOccurs="unbounded">
         <xs:complexType>
           <xs:annotation>
             <xs:documentation>
-              Pseudo object. Is aan te maken met &lt;Identifier&gt;.Create([Field, ..])
             </xs:documentation>
           </xs:annotation>
           <xs:attribute name="Identifier" type="typeidentifier" use="required"/>
@@ -505,11 +509,16 @@
         <xs:element name="DataClass" type="T_DataClass" minOccurs="0" maxOccurs="1">
           <xs:annotation>
             <xs:documentation>
-              Pseudo object. Is aan te maken met &lt;Identifier&gt;.Create([Field, ..])
             </xs:documentation>
           </xs:annotation>
         </xs:element>
         <xs:element name="Enumeration" type="T_Enumeration" minOccurs="0" maxOccurs="1">
+          <xs:annotation>
+            <xs:documentation>
+            </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="Alias" type="T_Alias" minOccurs="0" maxOccurs="1">
           <xs:annotation>
             <xs:documentation>
             </xs:documentation>
