@@ -478,6 +478,7 @@
       <xs:element name="Field" type="T_Field" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
     <xs:attribute name="Identifier" type="typeidentifier" use="required"/>
+    <xs:attribute name="ClassOfIdentifier" type="typeidentifier" use="optional"/>
     <xs:attribute name="Inherit" type="dataobjecttypeidentifier" use="optional"/>
     <xs:attribute name="DefaultConstructor" type="defaultconstructortype" use="optional"/>
   </xs:complexType>
@@ -503,6 +504,7 @@
             </xs:documentation>
           </xs:annotation>
           <xs:attribute name="Identifier" type="typeidentifier" use="required"/>
+          <xs:attribute name="ClassOfIdentifier" type="typeidentifier" use="optional"/>
         </xs:complexType>
       </xs:element>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
@@ -1073,23 +1075,6 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="T_DataObject.Create">
-    <xs:complexContent>
-      <xs:extension base="T_AbstractConditionalProcessItem">
-        <xs:attribute name="Identifier" type="identifier" use="required"/>
-        <xs:attribute name="DataClass" type="dataclassconst" use="required"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="T_DataObject.SetField">
-    <xs:complexContent>
-      <xs:extension base="T_AbstractConditionalProcessItem">
-        <xs:attribute name="DataObject" type="expression" use="required"/>
-        <xs:attribute name="Identifier" type="fieldidentifier" use="required"/>
-        <xs:attribute name="Value" type="expression" use="required"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
 
   <xs:element name="AbstractProcessItem" type="T_AbstractProcessItem" abstract="true"/>
   <xs:element name="AbstractConditionalProcessItem" type="T_AbstractConditionalProcessItem" substitutionGroup="AbstractProcessItem" abstract="true"/>
@@ -1132,8 +1117,6 @@
   <xs:element name="Suspend" type="T_Suspend" substitutionGroup="AbstractProcessItem"/>
   <xs:element name="Free" type="T_Free" substitutionGroup="AbstractProcessItem"/>
   <xs:element name="Object.Use" type="T_Object.Use" substitutionGroup="AbstractProcessItem"/>
-  <xs:element name="DataObject.Create" type="T_DataObject.Create" substitutionGroup="AbstractProcessItem"/>
-  <xs:element name="DataObject.SetField" type="T_DataObject.SetField" substitutionGroup="AbstractProcessItem"/>
   <xs:element name="ExitOnAbortRequest" type="T_AbstractConditionalProcessItem" substitutionGroup="AbstractProcessItem"/>
   <xs:element name="CreateDirectoryChangeObject" type="T_CreateDirectoryChangeObject" substitutionGroup="AbstractProcessItem"/>
 
