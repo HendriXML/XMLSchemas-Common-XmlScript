@@ -287,7 +287,7 @@
   </xs:complexType>
 
   <xs:complexType name="T_Variables">
-    <xs:sequence>
+    <xs:sequence minOccurs="0">
       <xs:element name="Variable" type="T_Variable" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
@@ -299,7 +299,7 @@
   </xs:complexType>
 
   <xs:complexType name="T_Constants">
-    <xs:sequence>
+    <xs:sequence minOccurs="0">
       <xs:element name="Constant" type="T_Constant" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
